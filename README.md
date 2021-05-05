@@ -1,6 +1,6 @@
 # Where
 Web based social media application
 
-#Authors
+### Authors
 Onur Akkepenek
 Yasemin Gerboğa
