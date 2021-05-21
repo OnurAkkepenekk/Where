@@ -10,7 +10,5 @@ namespace Entity.Concrete
         public int Id { get; set; }
         public int PlaceId { get; set; }
         public string CommentText { get; set; }
-        public double ServiceScore { get; set; }
-        public double CovidScore { get; set; }
     }
 }
