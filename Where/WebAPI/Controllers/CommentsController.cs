@@ -11,16 +11,16 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CommetsController : ControllerBase
+    public class CommentsController : ControllerBase
     {
         ICommentService _commentService;
 
-        public CommetsController(ICommentService _commentService)
+        public CommentsController(ICommentService _commentService)
         {
             this._commentService = _commentService;
         }
 
-        [HttpGet("GetById")]
+        [HttpGet("GetByPlaceId")]
         public IActionResult GetByPlaceId(int id)
         {
             var result = _commentService.GetByLocationId(id);
