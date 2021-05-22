@@ -27,8 +27,13 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<CommentManager>().As<ICommentDal>();
             builder.RegisterType<EfCommentDal>().As<ICommentDal>();
 
-
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+
+            builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
+                .EnableInterfaceInterceptors(new ProxyGenerationOptions()
+                {
+                    Selector = new AspectInterceptorSelector()
+                }).SingleInstance();
 
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
                            .EnableInterfaceInterceptors(new ProxyGenerationOptions()
