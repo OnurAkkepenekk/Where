@@ -21,6 +21,12 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
+            builder.RegisterType<ScoreManager>().As<IScoreService>();
+            builder.RegisterType<EfScoreDal>().As<IScoreDal>();
+
+            builder.RegisterType<CommentManager>().As<ICommentDal>();
+            builder.RegisterType<EfCommentDal>().As<ICommentDal>();
+
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
