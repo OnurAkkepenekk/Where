@@ -1,4 +1,5 @@
 ﻿using Core.Entities.Concrete;
+using Entity.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace DataAccess.Concrete.EntityFramework
         }
         // Hangi tablo nereye karşılık gelicek
         public DbSet<User> Users { get; set; }
+        public DbSet<Score> Scores { get; set; }
+        public DbSet<Comment> Comments { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
     }
