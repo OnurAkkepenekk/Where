@@ -24,7 +24,7 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<ScoreManager>().As<IScoreService>();
             builder.RegisterType<EfScoreDal>().As<IScoreDal>();
 
-            builder.RegisterType<CommentManager>().As<ICommentDal>();
+            builder.RegisterType<CommentManager>().As<ICommentService>();
             builder.RegisterType<EfCommentDal>().As<ICommentDal>();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
