@@ -1,8 +1,12 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-using Entity.Concrete;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,23 +20,28 @@ namespace Business.Concrete
         {
             _commentDal = commentDal;
         }
+        [SecuredOperation("comment.add")]
+        [ValidationAspect(typeof(CommentValidator))]
+        [CacheRemoveAspect("ICommentService.Get")]
         public IResult Add(Comment comment)
         {
             _commentDal.Add(comment);
             return new SuccessResult(Messages.AddComment);
         }
-
+        [SecuredOperation("comment.delete,admin")]
+        [CacheRemoveAspect("ICommentService.Get")]
         public IResult Delete(Comment comment)
         {
             _commentDal.Delete(comment);
             return new SuccessResult(Messages.DeleteComment);
         }
-
+        [CacheAspect]
         public IDataResult<List<Comment>> GetByLocationId(int placeId)
         {
             return new SuccessDataResult<List<Comment>>(_commentDal.GetAll(c => c.PlaceId == placeId), Messages.CommentGetById);
         }
-
+        [ValidationAspect(typeof(CommentValidator))]
+        [CacheRemoveAspect("ICommentService.Get")]
         public IResult Update(Comment comment)
         {
             _commentDal.Update(comment);

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entity.Concrete
+namespace Entities.Concrete
 {
     public class Place
     {
