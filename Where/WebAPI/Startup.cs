@@ -59,7 +59,6 @@ namespace WebAPI
             services.AddDependencyResolvers(new ICoreModule[] {
             new CoreModule()
             });
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -79,6 +78,8 @@ namespace WebAPI
             app.UseStaticFiles();
 
             app.UseRouting();
+            //Hangi yapýlarýn sýrasýyla devreye gireceðini söyler
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
