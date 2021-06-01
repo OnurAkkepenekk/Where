@@ -24,5 +24,6 @@ namespace Business.Constants
         public static string UpdateScore = "Degerlendirme güncellendi.";
         public static string DeleteScore = "Degerlendirme silindi.";
         public static string ScoreGetById = "Mekana göre degerlendirmeler listelendi.";
+        public static string BringUserInformation = "Kullanıcı bilgileri listelendi.";
     }
 }
