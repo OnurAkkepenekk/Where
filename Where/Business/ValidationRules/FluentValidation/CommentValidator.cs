@@ -10,9 +10,9 @@ namespace Business.ValidationRules.FluentValidation
     {
         public CommentValidator()
         {
-            RuleFor(c => c.PlaceId).NotEmpty();
-            RuleFor(c => c.CommentText).NotEmpty();
-            RuleFor(c => c.CommentText).MaximumLength(160);
+            //RuleFor(c => c.PlaceId).NotEmpty();
+            //RuleFor(c => c.CommentText).NotEmpty();
+            //RuleFor(c => c.CommentText).MaximumLength(160);
         }
     }
 }

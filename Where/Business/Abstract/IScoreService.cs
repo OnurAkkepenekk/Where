@@ -11,6 +11,6 @@ namespace Business.Abstract
         IResult Add(Score score);
         IResult Delete(Score score);
         IResult Update(Score score);
-        IDataResult<List<Score>> GetByLocationId(int locationId);
+        IDataResult<List<Score>> GetByLocationId(string locationId);
     }
 }
