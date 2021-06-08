@@ -20,7 +20,6 @@ namespace Business.Concrete
         {
             _commentDal = commentDal;
         }
-        [SecuredOperation("comment.add")]
         [ValidationAspect(typeof(CommentValidator))]
         [CacheRemoveAspect("ICommentService.Get")]
         public IResult Add(Comment comment)
@@ -36,7 +35,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.DeleteComment);
         }
         [CacheAspect]
-        public IDataResult<List<Comment>> GetByLocationId(int placeId)
+        public IDataResult<List<Comment>> GetByLocationId(string placeId)
         {
             return new SuccessDataResult<List<Comment>>(_commentDal.GetAll(c => c.PlaceId == placeId), Messages.CommentGetById);
         }

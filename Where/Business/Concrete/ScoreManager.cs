@@ -37,7 +37,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.DeleteScore);
         }
         [CacheAspect]
-        public IDataResult<List<Score>> GetByLocationId(int placeId)
+        public IDataResult<List<Score>> GetByLocationId(string placeId)
         {
             return new SuccessDataResult<List<Score>>(_scoreDal.GetAll(s => s.PlaceId == placeId), Messages.ScoreGetById);
         }

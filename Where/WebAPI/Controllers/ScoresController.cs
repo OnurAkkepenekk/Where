@@ -21,7 +21,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("GetByPlaceId")]
-        public IActionResult GetByPlaceId(int id)
+        public IActionResult GetByPlaceId(string id)
         {
             var result = _scoreService.GetByLocationId(id);
             if (result.Success)
